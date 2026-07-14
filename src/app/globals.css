@@ -1,26 +1,136 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+  --font-heading: var(--font-display);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-pillar-leadership: var(--pillar-leadership);
+  --color-pillar-ai: var(--pillar-ai);
+  --color-pillar-dev: var(--pillar-dev);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Ahaitu Labs is a fixed dark brand theme (no light mode toggle) */
+:root {
+  --background: #0a0a0f;
+  --foreground: #f4f4f6;
+  --card: #121218;
+  --card-foreground: #f4f4f6;
+  --popover: #121218;
+  --popover-foreground: #f4f4f6;
+  --primary: #6d5dfc;
+  --primary-foreground: #ffffff;
+  --secondary: #17171f;
+  --secondary-foreground: #f4f4f6;
+  --muted: #17171f;
+  --muted-foreground: #9a9aa8;
+  --accent: #1c1a2e;
+  --accent-foreground: #f4f4f6;
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #6d5dfc;
+  --radius: 0.75rem;
+
+  /* pillar accent colors: leadership / ai-ml / dev */
+  --pillar-leadership: #e8a33d;
+  --pillar-ai: #6d5dfc;
+  --pillar-dev: #2dd4bf;
+}
+
+@utility glass {
+  background: color-mix(in oklch, var(--card) 46%, transparent);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid color-mix(in oklch, white 10%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklch, white 6%, transparent) inset,
+    0 20px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+@utility glass-strong {
+  background: color-mix(in oklch, var(--card) 72%, transparent);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid color-mix(in oklch, white 10%, transparent);
+}
+
+@utility glass-nav {
+  background: color-mix(in oklch, var(--background) 100%, transparent);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid color-mix(in oklch, white 9%, transparent);
+  box-shadow: 0 12px 40px -16px rgba(0, 0, 0, 0.5);
+}
+
+@utility text-display {
+  font-family: var(--font-display);
+  font-feature-settings: "ss01" 1;
+  letter-spacing: -0.01em;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 55%, transparent);
+    color: var(--foreground);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body {
+    cursor: none;
+  }
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
 }
