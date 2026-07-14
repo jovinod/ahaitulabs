@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Lead sharper. Build smarter. Ship faster.",
   description:
     "Ahaitu Labs is a multi-disciplinary studio helping people and teams lead better, build AI/ML fluency, and ship exceptional web & app products.",
-  email: "hello@ahaitulabs.com",
+  email: "support@ahaitulabs.com",
 } as const;
 
 export const navItems = [

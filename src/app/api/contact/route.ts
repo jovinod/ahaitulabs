@@ -1,7 +1,12 @@
 import { NextResponse, after } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-import { buildContactEmailHtml, buildContactEmailText } from "@/lib/contact-email";
+import {
+  buildAcknowledgementEmailHtml,
+  buildAcknowledgementEmailText,
+  buildContactEmailHtml,
+  buildContactEmailText,
+} from "@/lib/contact-email";
 
 interface ContactPayload {
   name: string;
@@ -18,21 +23,21 @@ function sanitizeHeaderValue(value: string) {
   return value.replace(/[\r\n]+/g, " ").trim();
 }
 
-function getTransporter() {
-  const service = process.env.EMAIL_SERVICE || "gmail";
-  const user = process.env.EMAIL_USER;
-  const pass = process.env.EMAIL_APP_PASSWORD;
+function getEmailConfig() {
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.CONTACT_TO_EMAIL;
 
-  if (!user || !pass) {
+  if (!apiKey || !to) {
     throw new Error(
-      "Email is not configured: set EMAIL_USER and EMAIL_APP_PASSWORD."
+      "Email is not configured: set RESEND_API_KEY and CONTACT_TO_EMAIL."
     );
   }
 
-  return nodemailer.createTransport({
-    service,
-    auth: { user, pass },
-  });
+  return {
+    apiKey,
+    to,
+    from: process.env.CONTACT_FROM_EMAIL || "no-reply@ahaitulabs.com",
+  };
 }
 
 export async function POST(request: Request) {
@@ -60,9 +65,9 @@ export async function POST(request: Request) {
     message: body.message.trim(),
   };
 
-  let transporter;
+  let config;
   try {
-    transporter = getTransporter();
+    config = getEmailConfig();
   } catch (error) {
     console.error("[contact] email not configured", error);
     return NextResponse.json(
@@ -71,24 +76,39 @@ export async function POST(request: Request) {
     );
   }
 
-  const from = process.env.EMAIL_USER!;
-  const to = process.env.CONTACT_TO_EMAIL || from;
+  const resend = new Resend(config.apiKey);
+  const from = `Ahaitu Labs <${config.from}>`;
 
-  // Send after the response goes out so the UI doesn't wait on the SMTP round trip.
+  // Send after the response goes out so the UI doesn't wait on the email round trip.
   after(async () => {
-    try {
-      await transporter.sendMail({
-        from: `"Ahaitu Labs" <${from}>`,
-        to,
+    const notifyOwner = resend.emails
+      .send({
+        from,
+        to: config.to,
+        replyTo: submission.email,
         subject: `New inquiry from ${submission.name}${
           submission.interest ? ` - ${submission.interest}` : ""
         }`,
         text: buildContactEmailText(submission),
         html: buildContactEmailHtml(submission),
+      })
+      .catch((error) => {
+        console.error("[contact] failed to send owner notification", error);
       });
-    } catch (error) {
-      console.error("[contact] failed to send email", error);
-    }
+
+    const acknowledgeSender = resend.emails
+      .send({
+        from,
+        to: submission.email,
+        subject: "We've received your message - Ahaitu Labs",
+        text: buildAcknowledgementEmailText(submission),
+        html: buildAcknowledgementEmailHtml(submission),
+      })
+      .catch((error) => {
+        console.error("[contact] failed to send sender acknowledgement", error);
+      });
+
+    await Promise.all([notifyOwner, acknowledgeSender]);
   });
 
   return NextResponse.json({ ok: true });
