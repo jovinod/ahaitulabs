@@ -32,7 +32,7 @@ export function Hero() {
 
         <Reveal delay={0.1}>
           <h1 className="text-display mt-6 text-4xl font-medium text-balance text-foreground sm:text-6xl">
-            Lead sharperrrrrrr. Build smarter.{" "}
+            Lead sharperrrrrrr. Build smarterrrrrrrrrrrrr.{" "}
             <span className="bg-linear-to-r from-primary via-primary to-pillar-dev bg-clip-text italic text-transparent">
               Ship faster.
             </span>
