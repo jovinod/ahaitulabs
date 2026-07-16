@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ahaitu Labs",
   tagline: "Lead sharper. Build smarter. Ship faster.",
   description:
-    "Ahaitu Labs is a multi-disciplinary studio helping people and teams lead better, build AI/ML fluency, and ship exceptional web & app products.",
+    "At Ahaitu Labs, we partner with individuals, organizations, and institutions to drive leadership excellence, foster advanced AI proficiency, and deliver high-performance web and mobile applications.",
   email: "support@ahaitulabs.com",
 } as const;
 
@@ -13,14 +13,14 @@ export const navItems = [
     href: "/services",
     children: [
       {
+        label: "AI Consulting",
+        href: "/services/ai-consulting",
+        description: "Practical AI fluency for builders and leaders.",
+      },
+      {
         label: "Leadership Coaching",
         href: "/services/leadership-coaching",
         description: "Executive & team coaching for lasting impact.",
-      },
-      {
-        label: "AI/ML Coaching",
-        href: "/services/ai-ml-coaching",
-        description: "Practical AI fluency for builders and leaders.",
       },
       {
         label: "App & Web Development",
@@ -35,8 +35,8 @@ export const navItems = [
 
 export const footerLinks = {
   services: [
+    { label: "AI Consulting", href: "/services/ai-consulting" },
     { label: "Leadership Coaching", href: "/services/leadership-coaching" },
-    { label: "AI/ML Coaching", href: "/services/ai-ml-coaching" },
     { label: "App & Web Development", href: "/services/app-web-development" },
   ],
   company: [

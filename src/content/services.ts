@@ -20,19 +20,19 @@ export const pillarMeta: Record<
   Pillar,
   { label: string; colorVar: string; textClass: string; bgClass: string; borderClass: string }
 > = {
+  ai: {
+    label: "AI Consulting",
+    colorVar: "var(--pillar-ai)",
+    textClass: "text-pillar-ai",
+    bgClass: "bg-pillar-ai",
+    borderClass: "border-pillar-ai",
+  },
   leadership: {
     label: "Leadership Coaching",
     colorVar: "var(--pillar-leadership)",
     textClass: "text-pillar-leadership",
     bgClass: "bg-pillar-leadership",
     borderClass: "border-pillar-leadership",
-  },
-  ai: {
-    label: "AI/ML Coaching",
-    colorVar: "var(--pillar-ai)",
-    textClass: "text-pillar-ai",
-    bgClass: "bg-pillar-ai",
-    borderClass: "border-pillar-ai",
   },
   dev: {
     label: "App & Web Development",
@@ -66,6 +66,71 @@ export interface ServiceContent {
 }
 
 export const services: ServiceContent[] = [
+  {
+    slug: "ai-consulting",
+    pillar: "ai",
+    name: "AI Consulting",
+    tagline: "Practical AI fluency, not just theory.",
+    summary:
+      "Hands-on consulting to help builders and leaders actually use AI/ML - not just talk about it.",
+    description:
+      "We teach the applied side of AI and machine learning: how to reason about models, evaluate tools, and ship real features - for engineers going deeper technically, and for leaders who need enough fluency to make good calls.",
+    icon: Brain,
+    image: "/images/ai-ml-coaching.png",
+    imageAlt: "A person working at night with a neural network visualization glowing on screen",
+    offerings: [
+      {
+        title: "Applied ML Fundamentals",
+        description:
+          "A practical grounding in how modern ML and LLM systems actually work, for engineers and technical PMs.",
+        icon: Cpu,
+      },
+      {
+        title: "AI Product Strategy",
+        description:
+          "Consulting for founders and leaders on where AI genuinely fits your product and where it doesn't.",
+        icon: Sparkles,
+      },
+      {
+        title: "Team Upskilling",
+        description:
+          "Structured workshops to bring an entire team to a shared, practical baseline in weeks, not months.",
+        icon: BarChart3,
+      },
+    ],
+    process: [
+      {
+        title: "Fluency Audit",
+        description:
+          "We assess current skill level and goals - individual or team-wide - before designing anything.",
+      },
+      {
+        title: "Applied Curriculum",
+        description:
+          "A consulting plan built around your actual stack and use cases, not generic slides.",
+      },
+      {
+        title: "Build Sessions",
+        description:
+          "Hands-on sessions where we build, evaluate, and ship something real together.",
+      },
+      {
+        title: "Independent Capability",
+        description:
+          "We measure success by how much you no longer need us - a team that can evaluate and adopt AI on its own.",
+      },
+    ],
+    idealFor: [
+      "Engineering teams adopting AI/ML into their product",
+      "Founders deciding where AI belongs on the roadmap",
+      "Individual builders wanting real, applied fluency",
+    ],
+    outcomes: [
+      "A working mental model of how modern ML/LLM systems behave",
+      "Confidence evaluating AI tools, vendors, and approaches",
+      "At least one real feature or workflow shipped during coaching",
+    ],
+  },
   {
     slug: "leadership-coaching",
     pillar: "leadership",
@@ -129,71 +194,6 @@ export const services: ServiceContent[] = [
       "Clearer decision-making under ambiguity",
       "Stronger 1:1s, feedback, and delegation habits",
       "A communication style that scales with your team",
-    ],
-  },
-  {
-    slug: "ai-ml-coaching",
-    pillar: "ai",
-    name: "AI/ML Coaching",
-    tagline: "Practical AI fluency, not just theory.",
-    summary:
-      "Hands-on coaching to help builders and leaders actually use AI/ML - not just talk about it.",
-    description:
-      "We teach the applied side of AI and machine learning: how to reason about models, evaluate tools, and ship real features - for engineers going deeper technically, and for leaders who need enough fluency to make good calls.",
-    icon: Brain,
-    image: "/images/ai-ml-coaching.png",
-    imageAlt: "A person working at night with a neural network visualization glowing on screen",
-    offerings: [
-      {
-        title: "Applied ML Fundamentals",
-        description:
-          "A practical grounding in how modern ML and LLM systems actually work, for engineers and technical PMs.",
-        icon: Cpu,
-      },
-      {
-        title: "AI Product Strategy",
-        description:
-          "Coaching for founders and leaders on where AI genuinely fits your product and where it doesn't.",
-        icon: Sparkles,
-      },
-      {
-        title: "Team Upskilling",
-        description:
-          "Structured workshops to bring an entire team to a shared, practical baseline in weeks, not months.",
-        icon: BarChart3,
-      },
-    ],
-    process: [
-      {
-        title: "Fluency Audit",
-        description:
-          "We assess current skill level and goals - individual or team-wide - before designing anything.",
-      },
-      {
-        title: "Applied Curriculum",
-        description:
-          "A coaching plan built around your actual stack and use cases, not generic slides.",
-      },
-      {
-        title: "Build Sessions",
-        description:
-          "Hands-on sessions where we build, evaluate, and ship something real together.",
-      },
-      {
-        title: "Independent Capability",
-        description:
-          "We measure success by how much you no longer need us - a team that can evaluate and adopt AI on its own.",
-      },
-    ],
-    idealFor: [
-      "Engineering teams adopting AI/ML into their product",
-      "Founders deciding where AI belongs on the roadmap",
-      "Individual builders wanting real, applied fluency",
-    ],
-    outcomes: [
-      "A working mental model of how modern ML/LLM systems behave",
-      "Confidence evaluating AI tools, vendors, and approaches",
-      "At least one real feature or workflow shipped during coaching",
     ],
   },
   {

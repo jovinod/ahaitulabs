@@ -10,7 +10,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Why Ahaitu Labs exists, how we work, and the team behind our leadership, AI/ML, and product engineering practices.",
+    "Why Ahaitu Labs exists, how we work, and the team behind our AI, leadership, and product engineering practices.",
 };
 
 const values = [
@@ -36,18 +36,18 @@ const values = [
 
 const team = [
   {
+    icon: Brain,
+    pillarColor: "var(--pillar-ai)",
+    role: "AI Consulting Lead",
+    description:
+      "Designs our applied AI/ML curriculum and leads hands-on build sessions with engineering teams.",
+  },
+  {
     icon: Compass,
     pillarColor: "var(--pillar-leadership)",
     role: "Leadership Coaching Lead",
     description:
       "Leads our executive and team coaching practice, working directly with founders and managers.",
-  },
-  {
-    icon: Brain,
-    pillarColor: "var(--pillar-ai)",
-    role: "AI/ML Coaching Lead",
-    description:
-      "Designs our applied AI/ML curriculum and leads hands-on build sessions with engineering teams.",
   },
   {
     icon: Code2,

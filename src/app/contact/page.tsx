@@ -8,7 +8,7 @@ import { siteConfig } from "@/content/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Ahaitu Labs about leadership coaching, AI/ML coaching, or app & web development.",
+    "Get in touch with Ahaitu Labs about AI consulting, leadership coaching, or app & web development.",
 };
 
 export default function ContactPage() {
@@ -24,12 +24,10 @@ export default function ContactPage() {
             </span>
           </div>
           <h1 className="text-display mt-5 text-3xl font-medium text-balance text-foreground sm:text-4xl">
-            Let&apos;s figure out where to start.
+          Get in Touch
           </h1>
           <p className="mt-4 max-w-md text-base text-muted-foreground text-balance">
-            Tell us a little about what you&apos;re working on. One short
-            conversation is usually enough to know whether coaching, a build,
-            or both is the right fit.
+            Share a few details about your current initiatives or goals. Leave your contact information below, and we will reach out to discuss how we can best support your needs.
           </p>
 
           <div className="mt-10 flex flex-col gap-4">
@@ -42,7 +40,7 @@ export default function ContactPage() {
             </a>
             <div className="flex items-center gap-3 text-sm text-muted-foreground">
               <Clock className="size-4 text-primary" />
-              We typically reply within 1-2 business days
+              We typically reply within 24 hours
             </div>
           </div>
         </Reveal>

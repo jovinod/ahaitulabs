@@ -12,7 +12,7 @@ import { CtaBand } from "@/components/sections/cta-band";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Leadership coaching, AI/ML coaching, and app & web development - three practices, one studio.",
+    "AI consulting, leadership coaching, and app & web development - three practices, one studio.",
 };
 
 export default function ServicesPage() {

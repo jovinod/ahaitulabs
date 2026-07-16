@@ -26,11 +26,11 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ahaitu Labs - Leadership, AI/ML & Product Engineering",
+    default: "Ahaitu Labs - AI, Leadership & Product Engineering",
     template: "%s - Ahaitu Labs",
   },
   description:
-    "Ahaitu Labs is a multi-disciplinary studio helping people and teams lead better, build AI/ML fluency, and ship exceptional web & app products.",
+    "Ahaitu Labs is a multi-disciplinary studio helping people and teams build AI/ML fluency, lead better, and ship exceptional web & app products.",
 };
 
 export default function RootLayout({

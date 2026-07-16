@@ -17,7 +17,7 @@ export function Footer() {
                 {siteConfig.name}
               </span>
             </Link>
-            <p className="mx-auto mt-3 max-w-xs text-sm text-muted-foreground sm:mx-0">
+            <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground sm:mx-0">
               {siteConfig.description}
             </p>
           </div>
@@ -67,7 +67,7 @@ export function Footer() {
           <p>
             © {year} {siteConfig.name}. All rights reserved.
           </p>
-          <p>Leadership Coaching · AI/ML Coaching · App & Web Development</p>
+          <p>AI Consulting · Leadership Coaching · App & Web Development</p>
         </div>
       </div>
     </footer>

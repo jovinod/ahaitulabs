@@ -25,7 +25,7 @@ export function Hero() {
         <Reveal className="flex items-center gap-3">
           <span className="h-px w-8 bg-border" />
           <span className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
-            Leadership &middot; AI/ML &middot; Product Engineering
+            AI Consulting &middot; Leadership &middot; Product Engineering
           </span>
           <span className="h-px w-8 bg-border" />
         </Reveal>
@@ -42,8 +42,8 @@ export function Hero() {
         <Reveal delay={0.2}>
           <p className="mt-6 max-w-2xl text-base text-muted-foreground text-balance sm:text-lg">
             Ahaitu Labs is a multi-disciplinary studio for people and teams who
-            need three things at once: better leadership judgment, real AI/ML
-            fluency, and products that actually ship.
+            need three things at once: real AI fluency, better leadership
+            judgment, and products that actually ship.
           </p>
         </Reveal>
 
