@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { SkeletonImage } from "@/components/ui/skeleton-image";
 import { cn } from "@/lib/utils";
 
 interface ImageBreakProps {
@@ -19,7 +19,7 @@ export function ImageBreak({ src, alt, caption, className }: ImageBreakProps) {
             className
           )}
         >
-          <Image
+          <SkeletonImage
             src={src}
             alt={alt}
             fill

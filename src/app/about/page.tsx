@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { Compass, Brain, Code2, Heart, Eye, Feather } from "lucide-react";
 
 import { SectionHeading } from "@/components/ui/section-heading";
-import { MountFade, Reveal, StaggerGroup, StaggerItem } from "@/components/ui/reveal";
+import {
+  MountFade,
+  Reveal,
+  StaggerGroup,
+  StaggerItem,
+} from "@/components/ui/reveal";
 import { TreeMarkImage } from "@/components/brand/tree-mark-image";
 import { ImageBreak } from "@/components/ui/image-break";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -15,22 +20,22 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    icon: Eye,
-    title: "Clarity over comfort",
+    icon: Heart,
+    title: "Your success is our success",
     description:
-      "We'd rather tell you the honest read on a decision, a model, or a codebase than the comfortable one.",
+      "We don't win unless you do. Every engagement is measured by the outcome you get, not the hours we bill.",
   },
   {
     icon: Feather,
     title: "Craft, not just output",
     description:
-      "A coaching session or a pull request is judged the same way: was it done with care, or just done.",
+      "Finishing isn't the bar - getting it right is. We focus on shipping thoughtfully crafted work rather than rushing out volume.",
   },
   {
-    icon: Heart,
-    title: "People before frameworks",
+    icon: Eye,
+    title: "Transparency over comfort",
     description:
-      "Playbooks are a starting point. The actual person or team in front of us is what shapes the work.",
+      "You can expect an honest, critical assessment - even when the truth is uncomfortable.",
   },
 ];
 
@@ -38,23 +43,23 @@ const team = [
   {
     icon: Brain,
     pillarColor: "var(--pillar-ai)",
-    role: "AI Consulting Lead",
+    role: "AI Consulting",
     description:
-      "Designs our applied AI/ML curriculum and leads hands-on build sessions with engineering teams.",
+      "Every offering is customized around the specific, real-world problems your team is currently solving.",
   },
   {
     icon: Compass,
     pillarColor: "var(--pillar-leadership)",
-    role: "Leadership Coaching Lead",
+    role: "Leadership Coaching",
     description:
-      "Leads our executive and team coaching practice, working directly with founders and managers.",
+      "Tailored coaching for founders, executives, and team leads - delivering clarity and alignment where it matters most.",
   },
   {
     icon: Code2,
     pillarColor: "var(--pillar-dev)",
-    role: "Engineering Lead",
+    role: "Web & App Development",
     description:
-      "Leads product design and engineering delivery across our web and app development projects.",
+      "End-to-end product design and engineering - building high-quality web and mobile applications from concept to launch.",
   },
 ];
 
@@ -63,41 +68,71 @@ export default function AboutPage() {
     <>
       <section className="relative overflow-hidden px-8 pt-42 pb-16 sm:px-6 lg:px-8">
         <div className="absolute top-[-15%] left-1/2 -z-10 size-128 -translate-x-1/2 rounded-full bg-primary/15 blur-3xl" />
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
           <MountFade className="flex flex-col items-center">
             <TreeMarkImage size={48} />
           </MountFade>
           <MountFade>
             <h1 className="text-display mt-6 text-4xl font-medium text-balance text-foreground sm:text-5xl">
-              Why Ahaitu Labs exists
+              About Us
             </h1>
           </MountFade>
           <MountFade delay={0.1}>
-            <p className="mt-6 text-base text-muted-foreground text-balance sm:text-lg">
-              We kept seeing the same pattern: teams with strong technical
-              talent but shaky leadership, or strong leaders with no real
-              grip on AI, or great product ideas that never got built well.
-              Ahaitu Labs exists to close all three gaps under one roof.
+            <p className="text-display mt-8 max-w-xl text-xl font-medium text-balance text-foreground italic sm:text-2xl">
+              &ldquo;Potential is universal. Reaching it isn&apos;t.&rdquo;
             </p>
           </MountFade>
-        </div>
-      </section>
+          {/* <MountFade delay={0.2}>
+            <div className="mt-8 flex w-full max-w-2xl flex-col divide-y divide-border/60 sm:flex-row sm:divide-x sm:divide-y-0">
+              <div className="flex flex-1 flex-col items-center gap-3 py-6 text-center sm:px-8 sm:py-0">
+                <p className="max-w-56 text-sm text-muted-foreground">
+                  Even the greats had a coach - Steve Jobs, Larry Page, and
+                  Jeff Bezos among them.
+                </p>
+                <span className="text-display text-2xl font-medium text-foreground sm:text-3xl">
+                  5-7x
+                </span>
+                <div>
+                  <p className="max-w-40 text-xs text-muted-foreground">
+                    return leaders see after working with a coach
+                  </p>
+                  <p className="mt-1 text-[10px] tracking-wide text-muted-foreground/60 uppercase">
+                    ICF / PwC
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col items-center gap-3 py-6 text-center sm:px-8 sm:py-0">
+                <p className="max-w-56 text-sm text-muted-foreground">
+                  AI is reshaping how fast technical expertise goes stale.
+                </p>
+                <span className="text-display text-2xl font-medium text-foreground sm:text-3xl">
+                  2 yrs
+                </span>
+                <div>
+                  <p className="max-w-40 text-xs text-muted-foreground">
+                    how long a skill now lasts, down from decades
+                  </p>
+                  <p className="mt-1 text-[10px] tracking-wide text-muted-foreground/60 uppercase">
+                    with AI accelerating change
+                  </p>
+                </div>
+              </div>
+            </div>
+          </MountFade> */}
 
-      <section className="px-8 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl">
-          <MountFade delay={0.2} className="flex flex-col gap-6 text-base text-muted-foreground">
-            <p>
-              Most people don&apos;t need three separate vendors - a coach, an
-              AI consultant, and a dev shop - who&apos;ve never spoken to each
-              other and give conflicting advice. They need one studio that
-              understands how leadership, technical fluency, and execution
-              actually connect.
-            </p>
-            <p>
-              That&apos;s the premise Ahaitu Labs is built on: a small team of
-              practitioners across three disciplines, working from the same
-              operating principles, so the coaching you get and the product
-              we build together are pulling in the same direction.
+          <MountFade delay={0.2}>
+            <p className="mt-8 max-w-3xl text-base text-muted-foreground text-balance sm:text-lg">
+              That's why Ahaitu Labs exists.
+              <br />
+              <br />
+              We coach leaders to gain clarity, navigate the AI shift, and build
+              products people love.{" "}
+              <span className="font-bold text-white">
+                <br />
+                No theorists, just proven practitioners.{" "}
+              </span>
+              Every single engagement is led by a hands-on practitioner who has
+              been where you are. That’s the only way we work.
             </p>
           </MountFade>
         </div>
@@ -137,9 +172,9 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl">
           <SectionHeading
             align="left"
-            eyebrow="Team"
-            title="The practice leads"
-            description="Ahaitu Labs is a small, hands-on team - every engagement is led by a practitioner, not handed off to a junior bench."
+            eyebrow="Services"
+            title="What we offer"
+            description="Ahaitu Labs is selective by design. Practitioners lead every engagement - always."
           />
           <StaggerGroup className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {team.map((member) => (
@@ -172,7 +207,7 @@ export default function AboutPage() {
 
       <CtaBand
         title="Curious if we're the right fit?"
-        description="Tell us what you're working on and we'll tell you honestly whether we can help."
+        description="Tell us what you're building, and we'll reach out to explore how we can help."
       />
     </>
   );

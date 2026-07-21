@@ -1,15 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { SkeletonImage } from "@/components/ui/skeleton-image";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden px-4 pt-52 pb-24 sm:px-6 sm:pt-48 sm:pb-32 lg:px-8">
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <Image
+        <SkeletonImage
           src="/images/hero-converge.png"
           alt=""
           aria-hidden

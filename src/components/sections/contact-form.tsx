@@ -78,7 +78,15 @@ export function ContactForm() {
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" name="email" type="email" required autoComplete="email" />
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+            title="Enter a valid email address, e.g. name@example.com"
+          />
         </div>
       </div>
 
